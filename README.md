@@ -81,7 +81,7 @@ Now image that you only use the api client in some edge cases. Your program woul
 
 ## Solution
 
-We add a package variable called `configured` that tracks if the `New()` function was called. We also add an `init()` function that registers a "requirement" that checks that `configured` is `true`.
+We add a package variable called `configured` that tracks if the `New()` function was called. We also add an `init()` function that registers a "requirement" that checks if `configured` is `true`.
 
 ```go
 package api
