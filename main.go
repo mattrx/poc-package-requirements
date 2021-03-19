@@ -4,16 +4,12 @@ import (
 	"log"
 	"os"
 
-	"github.com/mattrx/poc-package-requirements/internal/packageA"
-	"github.com/mattrx/poc-package-requirements/internal/packageB"
-	"github.com/mattrx/poc-package-requirements/internal/packageC"
+	"github.com/mattrx/poc-package-requirements/internal/app"
 	"github.com/mattrx/poc-package-requirements/internal/requirements"
 )
 
 func main() {
-	log.Println("Starting...")
-
-	setup()
+	handler := app.Handler{}
 
 	errs := requirements.Check()
 	if len(errs) > 0 {
@@ -23,17 +19,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	run()
-
-	log.Println("Done.")
-}
-
-func setup() {
-	packageA.ConfigurePackage()
-	packageB.ConfigurePackage()
-	packageC.ConfigurePackage()
-}
-
-func run() {
-	packageA.Do()
+	handler.Do()
 }
